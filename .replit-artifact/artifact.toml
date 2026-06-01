@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/apk-builder/"
+title = "APK Builder"
+version = "1.0.0"
+id = "artifacts/apk-builder"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/apk-builder/" ]
+localPort = 21448
+
+[services.development]
+run = "npm run dev"  # Removido qualquer referência específica ao Replit
+
+[services.production]
+build = [ "npm run build" ]  # Removido qualquer referência específica ao Replit
+publicDir = "dist/public"  # Ajustado o diretório público para ser o padrão
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
